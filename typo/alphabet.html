@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Dot-Line-Form --- Hiroyuki Nakamura Portfolio</title>
+<meta name="description" content="Nakamura Hiroyuki　有限会社ワンダフルに所属しているコーダーです。このサイトは僕が気になっている技術や表現を実験するためのポートフォリオサイトです。仕事の依頼も待ってます。">
+<meta name="keywords" content="Dot-Line-Form,Dot,Line,Form,中村、浩之、中村浩之、Nakamura Hiroyuki,Nakamura,Hiroyuki,canvas,html5,css3,コーダー,コーディング,web">
+<meta name="author" content="Hiroyuki Nakamura">
+<meta property="og:site_name" content="Dot-Line-Form --- Hiroyuki Nakamura Portfolio">
+<meta property="og:title" content="Dot-Line-Form --- Hiroyuki Nakamura Portfolio">
+<meta property="og:description" content="Nakamura Hiroyuki　有限会社ワンダフルに所属しているコーダーです。このサイトは僕が気になっている技術や表現を実験するためのポートフォリオサイトです。">
+<meta property="og:url" content="http://www.dot-line-form.net/">
+<meta property="og:type" content="Website">
+<!-- <meta property="og:image" content="0000000"> -->
+<link href='http://fonts.googleapis.com/css?family=Raleway:700,500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../common/style/reset.css">
+<style type="text/css">
+html		{ background:#fff;}
+#typo_01	{ background:#fff;}
+#alphabet	{ font-family:Helvetica,Arial,sans-serif;}
+p	{ width:100%; position:relative; font-size:600px; background:#F00; text-shadow:0 3px 4px rgba(0,0,0,0.5),100px 150px 2px rgba(0,0,0,0.1),-100px -150px 5px rgba(255,255,255,0.1);}
+span	{ width:100%; display:block; position:absolute; top:50%; margin:-400px auto 0; text-align:center;}
+</style>
+</head>
+<body id="typo_01">
+<!-- ============= wrapper ============= -->
+<div id="wrapper"> 
+	<!-- #alphabet -->
+	<div id="alphabet">
+		<p><span>A</span></p>
+		<p><span>B</span></p>
+		<p><span>C</span></p>
+		<p><span>D</span></p>
+		<p><span>E</span></p>
+		<p><span>F</span></p>
+		<p><span>G</span></p>
+		<p><span>H</span></p>
+		<p><span>I</span></p>
+		<p><span>J</span></p>
+		<p><span>K</span></p>
+		<p><span>L</span></p>
+		<p><span>M</span></p>
+		<p><span>N</span></p>
+		<p><span>O</span></p>
+		<p><span>P</span></p>
+		<p><span>Q</span></p>
+		<p><span>R</span></p>
+		<p><span>S</span></p>
+		<p><span>T</span></p>
+		<p><span>U</span></p>
+		<p><span>V</span></p>
+		<p><span>W</span></p>
+		<p><span>X</span></p>
+		<p><span>Y</span></p>
+		<p><span>Z</span></p>
+	</div>
+	<!-- /#alphabet --> 
+</div>
+<!-- /============= wrapper ============= --> 
+<script type="text/javascript" src="../common/js/jquery/jquery.js"></script> 
+<script type="text/javascript" src="../common/js/ie/selectivizr-min.js"></script> 
+<script type="text/javascript" src="../common/js/jquery/easing.js"></script> 
+<script type="text/javascript">
+$(function(){
+	
+	function init(){
+		var $win = $(window);
+		var $alpha = $(document.getElementById("alphabet"));
+		var $type = $alpha.find("p");
+		var _h = $win.height();
+		var _len = $type.length;
+
+		// 色データ作成関数
+		var getRGB_02 = function(){
+			var cseed = Math.floor( Math.random()*100 );
+			var cnum = ( cseed++ * 0x552433 ) % 0x1000000;// 色の計算R ≒ 256 * n / 3, G ≒ 256 * n / 7, B ≒ 256 * n / 5
+			var hex = "000000" + cnum.toString(16);
+			return "#" + hex.substr( hex.length - 6, 6 );
+		}
+		
+		for(var i =0; i<_len; i++){
+			var col = getRGB_02();
+			$type.eq(i).css({"background-color":col,"color":col});
+			//$type.eq(i).css({"background-color":col});
+		}
+		
+		$type.height(_h);		
+	};
+	
+	$(window).on("ready",init);
+})
+</script>
+<script type="text/javascript" src="../common/js/ga.js"></script>
+</body>
+</html>

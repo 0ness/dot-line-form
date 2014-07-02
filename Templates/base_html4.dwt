@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>@@(Title)@@</title>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="description" content="@@(Description)@@" />
+<meta name="keywords" content="@@(Keyword)@@" />
+<meta name="author" content="" />
+<!--
+//コピーライト部分が無い場合によって使用する
+<meta name="copyright" content="" />
+//スマートフォン対応時にコメントアウト
+<meta name="viewport" content="width=1280px,user-scalable=yes" />
+-->
+<link rel="stylesheet" type="text/css" href="../common/style/reset.css" />
+<link rel="stylesheet" type="text/css" href="../common/style/layout.css" />
+<link rel="stylesheet" type="text/css" href="../common/style/contents.css" />
+<link rel="stylesheet" type="text/css" href="../common/style/temp.css" />
+<!-- TemplateBeginEditable name="head" -->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="common/style/ie.css">
+<![endif]-->
+<!-- TemplateEndEditable -->
+<!-- TemplateParam name="Title" type="text" value="" -->
+<!-- TemplateParam name="Keyword" type="text" value="" -->
+<!-- TemplateParam name="Description" type="text" value="" -->
+<!-- TemplateParam name="id" type="text" value="" -->
+<!-- TemplateParam name="class" type="text" value="" -->
+<!-- TemplateParam name="subNav-contents" type="boolean" value="false" -->
+</head>
+<body id="@@(id)@@"@@((class == '')?'' : ' class="' + class + '"';)@@>
+<!-- ============= wrapper ============= -->
+<div id="wrapper"> 
+	<!-- header -->
+	<div id="header"> 
+		<!-- gnav --> 
+		<!-- 基本はnavが親だが、構成がシンプルな場合はulを親にする-->
+		<div id="gnav">
+			<ul>
+				<li id="gn_01"@@((id != 'category_id_01') ? '' : ' class="current"';)@@><a href="#header"></a></li>
+				<li id="gn_02"@@((id != 'category_id_02') ? '' : ' class="current"';)@@><a href="#header"></a></li>
+				<li id="gn_03"@@((id != 'category_id_03') ? '' : ' class="current"';)@@><a href="#header"></a></li>
+				<li id="gn_04"@@((id != 'category_id_04') ? '' : ' class="current"';)@@><a href="#header"></a></li>
+				<li id="gn_05"@@((id != 'category_id_05') ? '' : ' class="current"';)@@><a href="#header"></a></li>
+			</ul>
+		</div>
+		<!-- /gnav --> 
+	</div>
+	<!-- /header --> 
+	
+	<!-- ============= contents ============= -->
+	<div id="contents"> 
+		
+		<!-- main -->
+		<div id="main"></div>
+		<!-- /main --> 
+		<!-- sub -->
+		<div id="sub"> 
+			<!-- subNav -->
+			<div id="subNav"> <!-- TemplateBeginIf cond="_document['subNav-contents']" --> 
+				<!-- subNav-about -->
+				<dl>
+					<dt>カテゴリータイトル</dt>
+					<dd@@((id != 'content_id_01') ? '' : ' class="current"';)@@><a href="#header"></a>
+					</dd>
+					<dd@@((id != 'content_id_02') ? '' : ' class="current"';)@@><a href="#header"></a>
+					</dd>
+					<dd@@((id != 'content_id_03') ? '' : ' class="current"';)@@><a href="#header"></a>
+					</dd>
+					<dd@@((id != 'content_id_04') ? '' : ' class="current"';)@@><a href="#header"></a>
+					</dd>
+				</dl>
+				<!-- /subNav-about --> 
+				<!-- TemplateEndIf --> </div>
+		</div>
+		<!-- /sub --> 
+		<a href="#header" id="top_back">トップに戻る</a> </div>
+	<!-- /============= contents ============= --> 
+	
+	<!-- footer -->
+	<div id="footer">
+		<ul>
+			<li><a href="#header">サイトマップ</a></li>
+			<li><a href="#header">個人情報のお取扱いについて</a></li>
+			<li><a href="#header">サイトポリシー</a></li>
+		</ul>
+		<p><small>Copylight &copy;</small></p>
+	</div>
+	<!-- /footer --> 
+	<!-- TemplateBeginEditable name="wrapper-last" --> <!-- TemplateEndEditable --> </div>
+<!-- /============= wrapper ============= --> 
+<script type="text/javascript" src="../common/js/jquery/jquery.js"></script> 
+<script type="text/javascript" src="../common/js/ie/selectivizr-min.js"></script> 
+<script type="text/javascript" src="../common/js/jquery/easing.js"></script> 
+<script type="text/javascript" src="../common/js/main.js"></script> 
+<!-- TemplateBeginEditable name="body-last" --> <!-- TemplateEndEditable --> 
+<script type="text/javascript" src="../common/js/ga.js"></script>
+</body>
+</html>
