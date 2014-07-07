@@ -66,7 +66,7 @@ function init(){
 	var randID = function(){
 		$(function(){
 			var $body = $("body");
-			var aryID = ["midNight","midNight"];
+			var aryID = ["midNight"];
 			var len = aryID.length+1;
 			
 			//ランダムなID

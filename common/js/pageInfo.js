@@ -1,21 +1,19 @@
 /*==============================================================================
 
 	コンテンツ共通　ページ情報オブジェクト
-	
+
 	・基本の状態を維持する必要は無く、プロジェクトによってカスタマイズする
-	
+
 	・head内で読み込ませて使用
 	・戻り値の関数は分岐処理などに利用する
 	・CSS読み込み
 	・viewportなどを操作する
-	
+
 ==============================================================================*/
+var PageInfo = function(){
 
-
-function PageContent(){
-	
 	var doc = document;
-	
+
 	/*object ユーザー情報
 	--------------------------------------------------------------------*/
 	var user = {
@@ -23,12 +21,12 @@ function PageContent(){
 		VER:"not IE",		//ブラウザバージョン IE用
 		mobile:false,		//スマートフォン判定
 		device:"pc",
-		check:function(){	//ブラウザ判定		
+		check:function(){	//ブラウザ判定
+			
 			var _qs = "id=PC";
 			var _ua = navigator.userAgent;
-			var _wn = window.navigator;
-			var _userAgent = _wn.userAgent.toLowerCase();
-			var _appVersion = _wn.appVersion.toLowerCase();
+			var _userAgent = window.navigator.userAgent.toLowerCase();
+			var _appVersion = window.navigator.appVersion.toLowerCase();
 			var _ls = location.search;
 
 			//スマートフォン UA確認
@@ -45,14 +43,14 @@ function PageContent(){
                 if( height_num === 2048) this.device = "ipad3";
                 else this.device = "ipad";
 			}
-			
+
 			//クエリ確認
 			if (_ls.length !== 0) {
-				_qs = _ls.substr(1).split("&").toString();	
+				_qs = _ls.substr(1).split("&").toString();
 				if(_qs === "id=PC") this.mobile = false;
 				else if(_qs === "id=SP") this.mobile = true;
 			}
-			
+
 			//ブラウザ確認
 			if(_userAgent.indexOf("msie") !== -1){
 				this.UA = "ie";
@@ -61,20 +59,20 @@ function PageContent(){
 				else if (_appVersion.indexOf("msie 6.") !== -1) this.VER = 'ie6';
 				else if (_appVersion.indexOf("msie 6.") !== -1) this.VER = "ie9";	//IE9以上
                 else this.VER = "ie10";
-            }else if(_userAgent.indexOf('trident/7') != -1){
+            }else if(_userAgent.indexOf('trident/7') !== -1){
 				this.UA = "ie";
                 this.VER = 'ie11';
 			}else{
 				if(_userAgent.indexOf("firefox") !== -1) this.UA = "firefox";
-				else this.UA = "webkit";				
+				else this.UA = "webkit";
 			};
-			
+
 			return false;
 		}
 	};
 	user.check();
-	
-	
+
+
 	/*object ページ情報
 	--------------------------------------------------------------------*/
 	var content = {
@@ -83,14 +81,15 @@ function PageContent(){
 		check:function(){ //ページid・classの取得
 			var bodys = doc.getElementsByTagName("body")[0];
 			var classStr = user.UA;
-            
+
 			this.ID = bodys.getAttribute('id');
 			this.Category = bodys.getAttribute("class");
-            
+
 			if(classStr !== "ie") doc.getElementById("wrapper").className = classStr;
 			return false;
 		}
-	}
+	};
+	content.check();
 
 
 	/*object HEAD要素　動的記述
@@ -124,14 +123,14 @@ function PageContent(){
 			var _str = 'width=950px';
 			var meta = doc.createElement('meta');
 			meta.setAttribute('name','viewport');
-			if(user.mobile === true) _str = 'width=device-width';		
+			if(user.mobile === true) _str = 'width=device-width';
 			meta.setAttribute('content',_str);
-			doc.getElementsByTagName('head')[0].appendChild(meta);
+			doc.getElementsByTagName('head')[0].appendChild(meta); 
 		}
-	}
-	
+	};
 
-	/*method 戻り値関数
+
+	/*function 戻り値関数
 	--------------------------------------------------------------------*/
 	return {
 		UA:function(){    return user.UA; },//ユーザーエージェント
@@ -144,11 +143,6 @@ function PageContent(){
 		pcCSS:function(css){  return HEAD.pcCSS(css); },//CSS動的読み込み
 		mobileCSS:function(css){  return HEAD.mobileCSS(css); },//CSS動的読み込み
 		viewport:function(){  return HEAD.responseViewPort(); },//viewport動的変更
-		uaClass:function(){   return content.uaClass();},//UAをクラス名としてhtmlに付加する
+		uaClass:function(){   return content.uaClass();}//UAをクラス名としてhtmlに付加する
 	}
-}
-
-
-
-//インスタンス///////////////////////////////////////	
-var page = new PageContent();
+};
