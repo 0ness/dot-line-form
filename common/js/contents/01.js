@@ -96,10 +96,8 @@ function init(){
 			arcDraw:function(){
 
 				var arr = this.arr;
-				var axis = this.axis;
 				var dis = 0;
 				var flg = false;
-				var dot = this.dot;
 				var len = this.len;
 				
 				for(var i=0; i<len; i++){
@@ -262,6 +260,7 @@ function init(){
 		var line_35 = new DotLine(1200,700,200,449,30,15,0.5);
 		var line_36 = new DotLine(1200,720,200,469,40,10,0.4);
 
+		
 		
 		//オブジェクト生成
 		numLineLen = aryLineObj.length;
