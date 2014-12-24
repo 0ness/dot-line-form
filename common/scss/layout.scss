@@ -29,17 +29,14 @@
 html	{ height:100%; -webkit-text-size-adjust: none;}
 body	{ height:100%; text-align:left; font-family:Helvetica,$fontGothic;
 	& > #wrapper { height:auto;}
-	#wrapper { min-width:1080px; height:100%;  min-height:850px; overflow:hidden; margin:0 auto; position:relative;
-		background: #0099cc; /* Old browsers */
-		background: -ms-linear-gradient(180deg,  #0099cc 0%,#004888 67%,#00285c 100%); /* IE10+ */
-		background: linear-gradient(190deg,  #0099cc 0%,#004888 67%,#00285c 100%); /* W3C */
-	}
-	@include iphone	{
-		#wrapper	{ height:1280px;}
-	}
-	@include ipad	{
-		#wrapper	{ height:1280px;}
-	}
+}
+#wrapper { min-width:1080px; height:100%; min-height:100%; overflow:hidden; margin:0 auto; position:relative; background: #0099cc; background: linear-gradient(190deg,  #0099cc 0%,#004888 67%,#00285c 100%); }
+
+@include iphone	{
+	#wrapper	{ height:1280px;}
+}
+@include ipad	{
+	#wrapper	{ height:1280px;}
 }
 
 p::selection,h1::selection,h2::selection,h3::selection,h4::selection,a::selection,img::selection,em::selection,strong::selection,dd::selection,dt::selection,u::selection,dfn::selection,li::selection{ color:scheme(key); background:#ccc;}
@@ -75,98 +72,110 @@ p::selection,h1::selection,h2::selection,h3::selection,h4::selection,a::selectio
 /*-------------------------------------------------------------------------------------------------*
 HEADER
 --------------------------------------------------------------------------------------------------*/
-#header	{ width:$width; margin:0 auto; padding:40px 0 0; position:relative; z-index:10;
+#header	{ width:$width; margin:0 auto; padding:40px 0 0; position:relative; z-index:10;}
 
-	//タイトル
-	#vi	{ margin:0 0 120px; font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; @include transition(linear,1s,color);
-		.viLine	{ display:inline-block; vertical-align:middle; margin: -2px 4px 0 5px; font-family:Helvetica,Arial,sans-serif; font-size:13px; @include transition(linear,0.6s);
-			&:nth-child(2)	{ margin-left:4px;}
-		}
-		.viO	{ margin:0 2px 0 1px;}
+//タイトル
+#vi	{ margin:0 0 120px; font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; transition:linear 1s;
+	.viLine	{ display:inline-block; vertical-align:middle; margin: -2px 4px 0 5px; font-family:Helvetica,Arial,sans-serif; font-size:13px; transition:linear 0.6s;
+		&:nth-child(2)	{ margin-left:4px;}
 	}
-	
-	//メインナビ
-	#mainNav	{ @include top-right(57,5,10); overflow:hidden; @include transition(linear,1s,opacity); display:none;
-		li	{ float:left; padding:3px 16px 3px 3px;
-			span	{ display:inline-block; margin:0; font-size:8px; color:#ccc; display:none;}
-		}
+	.viO	{ margin:0 2px 0 1px;}
+//	.lfn { opacity: 0;}
+}		
+
+//メインナビ
+#mainNav	{ @include top-right(57,5,10); overflow:hidden; @include transition(linear,1s,opacity); display:none;
+	li	{ float:left; padding:3px 16px 3px 3px;
+		span	{ display:inline-block; margin:0; font-size:8px; color:#ccc; display:none;}
 		a	{ display:block; padding:0 9px 2px; color:#000; font-size:10px; font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1px; @include transition; background:#d0d0d0; @include radius(2px); text-decoration:none;
 			&:hover	{ background:scheme(linkHover); @include box-shadow(0 0 3px scheme(linkHover));}
 		}
-		li.current	{
+		&.current	{
 			a{ background:#333;
 				&:hover	{ @include box-shadow(none);}
 			}
 		}
 	}
-	
-	//暗転時
-	.fadeOut &{
-		#vi{ 
-			.viLine{ @include animation(blackout 2.5s linear infinite alternate);}
-		}
-		#mainNav	{ opacity:0.3;}
-	}
 }
 
+//暗転時
+.fadeOut{
+	#vi{ 
+		.viLine{ @include animation(blackout 2.5s linear infinite alternate);}
+	}
+	#mainNav	{ opacity:0.3;}
+}
 
 
 
 /*-------------------------------------------------------------------------------------------------*
 CONTENTS
 --------------------------------------------------------------------------------------------------*/
-#contents	{ width:$width; min-height:100%; overflow:hidden; position:relative; margin:0 auto; z-index:10; @include transition(linear,1s,opacity);
+#contents	{ width:$width; min-height:100%; overflow:hidden; position:relative; margin:0 auto; padding:  0 0 150px; z-index:10; transition:opacity 1.5s linear; 
 
 	//インナー
 	//#contents-inner	{ width:$width; @include top-left;}
-
-	//名前
-	h2	{ margin:0 0 120px 0; font-size:fs(22); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:2px;
-		span	{ display:block; padding:0 0 4px 1px; font-size:13px; font-weight:700; letter-spacing:3px;}
-	}
-	
-	
-	//ページ1///////////////////////////////////////
-	#page_01{ }
-	
-	//メッセージ、プロフィール、このサイトについて
-	.profileBox	{ width:1080px; margin:0 0 10px 3px; overflow:hidden;
-		h3	{ margin:0 0 10px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}
-		p	{ width:320px; float:left; padding:0 25px 0 0; font-size:11px; line-height:1.6; letter-spacing:1.5px; border-right:1px solid #222; @include text-justify;
-			&.en	{ margin:0 0 0 30px; font-size:10px; line-height:1.4; letter-spacing:1.5px;}
-			&.ko	{ border:none; padding:0; margin:0 0 0 30px; line-height:1.5;}
-		}
-	}
-	
-	//プロフィール
-	#message	{  margin-bottom:30px;
-		p,
-		em	{ font-size:15px; line-height:1.5; letter-spacing:2px; font-weight:bold;}
-	}
-	
-	//このサイトについて
-	#about	{ margin-bottom:40px;}
-	
-			
-	//ページ2///////////////////////////////////////
-	#page_02	{ width:$width; min-height:650px; margin:0 0 40px 3px; overflow:hidden; display:none;}
-	
-	//ワークス
-	#works	{ width:2000px; overflow:hidden;
-		h3	{ margin:0 0 20px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}	
-		dl	{ width:$width / 7 - 14; float:left; padding: 0 15px 0 0; margin:0 15px 0 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
-		//dl	{ width:$width; padding:0 15px 0 0; margin:0 15px 20px 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
-			dt	{ height:400px; margin:0 0 5px 0; @include sizing; background:#fff;}
-			dd	{ font-size:11px;}
-		}
-		dl:last-child	{ margin:0; border:none;}
-		a	{ color:#fff; @include transition(ease-out,0.2s,color)}
-		a:hover	{ color:#F00; text-shadow:0 0 3px #f00;}
-	}
-
-		
-	//暗転時///////////////////////////////////////
 	.fadeOut &		{ opacity:0.3;}
+}
+
+
+//ブロック要素
+.blcColumnParent { width:1080px; margin:0 0 10px 3px; overflow:hidden;}
+.blcColumn3 { width: 340px; float: left; padding:0 30px 0 0; margin: 0 30px 0 0; border-right:1px solid #666; box-sizing: border-box;
+	&:last-child { padding-right:10px; margin-right:0; border: none;}
+}
+
+//テキスト要素
+.head-01	{ margin:0 0 120px 0; font-size:fs(22); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:2px;
+	.sub	{ display:block; padding:0 0 4px 1px; font-size:13px; font-weight:700; letter-spacing:3px;}
+}
+.head-min	{ margin:0 0 10px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}
+.txtCopy 	{ float:left; font-size:15px; line-height:1.5; letter-spacing:2px; font-weight:bold;}
+.txt		{ font-size:11px; line-height:1.6; letter-spacing:1.5px; @include text-justify;
+	&.en	{ font-size:10px; line-height:1.4; letter-spacing:1.5px;}
+	&.ko	{ line-height:1.5;}
+}
+
+.start {
+	.blcColumn3 { border-color: transparent;}
+}
+
+
+#page_01 	{}
+#headName,
+#headNameSub{
+	span {opacity: 0;}
+}
+#txtCopy_01,
+#txtCopy_02,
+#txtCopy_01_02,
+#txtCopy_02_02,
+#txtCopy_03,
+#txtCopy_03_02{
+		span {opacity: 0; font-weight:bold;}
+}
+
+#message	{  margin-bottom:30px;
+	.blcColumn3 { transition: 0.3s linear;}
+}
+#profile { opacity: 0; transition:opacity 1.5s linear;}
+#about	{ margin-bottom:40px; opacity: 0; transition:opacity 1.5s 0.8s linear;}
+
+
+//ページ2
+#page_02	{ width:$width; min-height:650px; margin:0 0 40px 3px; overflow:hidden; display:none;}
+
+//ワークス
+#works	{ width:2000px; overflow:hidden;
+	h3	{ margin:0 0 20px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}	
+	dl	{ width:$width / 7 - 14; float:left; padding: 0 15px 0 0; margin:0 15px 0 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
+		//dl	{ width:$width; padding:0 15px 0 0; margin:0 15px 20px 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
+		dt	{ height:400px; margin:0 0 5px 0; @include sizing; background:#fff;}
+		dd	{ font-size:11px;}
+	}
+	dl:last-child	{ margin:0; border:none;}
+	a	{ color:#fff; @include transition(ease-out,0.2s,color)}
+	a:hover	{ color:#F00; text-shadow:0 0 3px #f00;}
 }
 
 
