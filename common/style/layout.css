@@ -2,36 +2,21 @@
 /*============================================================
 RESET用スタイル　
 ============================================================*/
-html { color: #111; background: #09c; }
-
+html { color: #111; }
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
-
 table { border-collapse: collapse; border-spacing: 0; }
-
 fieldset, img { border: 0; }
-
 address, caption, cite, code, dfn, em, strong, th, time, b, u, var { font-style: normal; font-weight: normal; }
-
 ol, ul, li { list-style: none; }
-
 caption, th { text-align: left; }
-
 h1, h2, h3, h4, h5, h6, small { font-size: 100%; font-weight: normal; }
-
 q:before, q:after { content: ""; }
-
 abbr, acronym { border: 0; font-variant: normal; }
-
 sup { vertical-align: text-top; }
-
 sub { vertical-align: text-bottom; }
-
 input, textarea, select { font-family: inherit; font-size: inherit; font-weight: inherit; *font-size: 100%; }
-
 legend { color: #000; }
-
 main, header, footer, section, hgroup, aside, nav, address, article, figure { display: block; margin: 0; padding: 0; }
-
 /*
 [77% = 10px]
 [85% = 11px]
@@ -52,132 +37,105 @@ main, header, footer, section, hgroup, aside, nav, address, article, figure { di
 [197% = 26px]
 */
 body { font: 13px/1.231 arial,helvetica,clean,sans-serif; *font-size: small; /* for IE */ *font: x-small; /* for IE in quirks mode */ font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
-
 select, input, button, textarea { font: 99% arial, helvetica, clean, sans-serif; }
-
 table { font-size: inherit; font: 100%; }
-
 pre, code, kbd, samp, tt { font-family: monospace; *font-size: 108%; line-height: 100%; }
-
 html { height: 100%; -webkit-text-size-adjust: none; }
-
-body { height: 100%; text-align: left; font-family: Helvetica, "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
+body { height: 100%; margin: 0; padding: 0; text-align: left; font-family: Helvetica, "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
 body > #wrapper { height: auto; }
-
-#wrapper { min-width: 1080px; height: 100%; min-height: 100%; overflow: hidden; margin: 0 auto; position: relative; background: #0099cc; background: -webkit-linear-gradient(260deg, #0099cc 0%, #004888 67%, #00285c 100%); background: linear-gradient(190deg, #0099cc 0%, #004888 67%, #00285c 100%); }
-
+#wrapper { /*min-width:1080px; */ width: 100%; height: 100%; min-height: 100%; overflow: hidden; margin: 0 auto; position: relative; }
+.container { /*margin:2%;*/ padding: 3.5% 3%; /*border: 1px solid #727272;*/ box-sizing: border-box; }
 @media screen and (min-width: 0px) and (max-device-width: 640px) { #wrapper { height: 1280px; } }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) { #wrapper { height: 1280px; } }
 p::-moz-selection, h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, a::-moz-selection, img::-moz-selection, em::-moz-selection, strong::-moz-selection, dd::-moz-selection, dt::-moz-selection, u::-moz-selection, dfn::-moz-selection, li::-moz-selection { color: #0797de; background: #ccc; }
 p::selection, h1::selection, h2::selection, h3::selection, h4::selection, a::selection, img::selection, em::selection, strong::selection, dd::selection, dt::selection, u::selection, dfn::selection, li::selection { color: #0797de; background: #ccc; }
-
 *::-moz-selection { color: #0797de; background: #ccc; }
-
 @font-face { font-family: 'icomoon'; src: url("../fonts/icomoon.eot"); src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg"); font-weight: normal; font-style: normal; }
 .icon-twitter:before, .icon-facebook:before, .icon-new-window:before, .icon-mail:before { font-family: 'icomoon'; speak: none; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; }
-
 .icon-facebook:before { content: "\e001"; }
-
 .icon-new-window:before { content: "\e000"; }
-
 .icon-twitter:before { content: "\e002"; }
-
 .icon-mail:before { content: "\e003"; }
-
 /*-------------------------------------------------------------------------------------------------*
 HEADER
 --------------------------------------------------------------------------------------------------*/
-#header { width: 1080px; margin: 0 auto; padding: 40px 0 0; position: relative; z-index: 10; }
-
-#vi { margin: 0 0 120px; font-size: 231%; font-family: 'Raleway'; font-weight: 700; line-height: 1; letter-spacing: 1.5px; -webkit-transition: linear 1s; transition: linear 1s; }
+#header { margin: 0 auto 200px; padding: 0 0 0; position: relative; z-index: 10; }
+#vi { display: inline-block; font-size: 231%; font-family: 'Raleway'; font-weight: 700; line-height: 1; letter-spacing: 1.5px; -webkit-transition: linear 1s; transition: linear 1s; opacity: 0; }
 #vi .viLine { display: inline-block; vertical-align: middle; margin: -2px 4px 0 5px; font-family: Helvetica,Arial,sans-serif; font-size: 13px; -webkit-transition: linear 0.6s; transition: linear 0.6s; }
 #vi .viLine:nth-child(2) { margin-left: 4px; }
 #vi .viO { margin: 0 2px 0 1px; }
-
-#mainNav { top: 57px; right: 5px; position: absolute; z-index: 10; overflow: hidden; -webkit-transition: linear 1s opacity; transition: linear 1s opacity; -webkit-transition-delay: 0s; transition-delay: 0s; display: none; }
+#vi.is-displayed { opacity: 1; -webkit-transition: ease-in 1s 0.4s; transition: ease-in 1s 0.4s; }
+#mainNav { top: 0px; right: 0px; position: absolute; z-index: 10; overflow: hidden; -webkit-transition: linear 1s opacity; transition: linear 1s opacity; -webkit-transition-delay: 0s; transition-delay: 0s; display: none; }
 #mainNav li { float: left; padding: 3px 16px 3px 3px; }
 #mainNav li span { display: inline-block; margin: 0; font-size: 8px; color: #ccc; display: none; }
 #mainNav li a { display: block; padding: 0 9px 2px; color: #000; font-size: 10px; font-family: 'Raleway'; font-weight: 700; line-height: 1; letter-spacing: 1px; -webkit-transition: ease-out 0.2s all; transition: ease-out 0.2s all; -webkit-transition-delay: 0s; transition-delay: 0s; background: #d0d0d0; border-radius: 2px; text-decoration: none; }
 #mainNav li a:hover { background: #FD0004; box-shadow: 0 0 3px #FD0004; }
 #mainNav li.current a { background: #333; }
 #mainNav li.current a:hover { box-shadow: none; }
-
-.fadeOut #vi .viLine { -webkit-animation: blackout 2.5s linear infinite alternate; -ms-animation: blackout 2.5s linear infinite alternate; animation: blackout 2.5s linear infinite alternate; }
+#mainNav li:last-child { padding-right: 0; }
+.fadeOut #vi .viLine { -webkit-animation: blackout 2.5s linear infinite alternate; animation: blackout 2.5s linear infinite alternate; }
 .fadeOut #mainNav { opacity: 0.3; }
-
 /*-------------------------------------------------------------------------------------------------*
 CONTENTS
 --------------------------------------------------------------------------------------------------*/
-#contents { width: 1080px; min-height: 100%; overflow: hidden; position: relative; margin: 0 auto; padding: 0 0 150px; z-index: 10; -webkit-transition: opacity 1.5s linear; transition: opacity 1.5s linear; }
+#contents { width: 100%; min-height: 100%; overflow: hidden; position: relative; margin: 0 auto; padding: 0 0 100px; z-index: 10; -webkit-transition: opacity 1.5s linear; transition: opacity 1.5s linear; }
 .fadeOut #contents { opacity: 0.3; }
-
-.blcColumnParent { width: 1080px; margin: 0 0 10px 3px; overflow: hidden; }
-
-.blcColumn3 { width: 340px; float: left; padding: 0 30px 0 0; margin: 0 30px 0 0; border-right: 1px solid #666; box-sizing: border-box; }
-.blcColumn3:last-child { padding-right: 10px; margin-right: 0; border: none; }
-
-.head-01 { margin: 0 0 120px 0; font-size: 170%; font-family: 'Raleway'; font-weight: 700; line-height: 1; letter-spacing: 2px; }
-.head-01 .sub { display: block; padding: 0 0 4px 1px; font-size: 13px; font-weight: 700; letter-spacing: 3px; }
-
-.head-min { margin: 0 0 10px; font-family: 'Raleway'; font-size: 12px; letter-spacing: 1.5px; }
-
+.section { padding: 0 0 0 239px; box-sizing: border-box; }
+.column { width: 100%; zoom: 1; position: relative; }
+.column:before, .column:after { display: block; height: 0; visibility: hidden; content: "\0020"; }
+.column:after { clear: both; }
+.column__hd { margin: 0 0 18px; font-family: 'Raleway'; font-size: 12px; letter-spacing: 2px; line-height: 1; }
+.column + .column { margin-top: 50px; }
+.column--2 .column__child { width: 50%; float: left; padding: 0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box; }
+.column--2 .column__child:last-child { width: 48%; padding: 0; margin-right: 0; }
+.column--3 .column__child { width: 33%; float: left; padding: 0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box; }
+.column--3 .column__child:last-child { width: 30%; padding: 0; margin-right: 0; }
+.hd-name { margin: 0 0 80px 239px; font-size: 12px; font-family: 'Raleway'; font-weight: 700; line-height: 1; letter-spacing: 3px; }
+.hd-name__sub-blc { /*float: left; */ display: block; padding: 2px 10px 1px 0; }
+.hd-name__sub { display: block; padding: 0 0 2px; /*font-size:11px;*/ font-weight: 700; letter-spacing: 3px; }
+#headName span, #headNameSub span, #headNameSub_02 span { opacity: 0; }
 .txtCopy { float: left; font-size: 15px; line-height: 1.5; letter-spacing: 2px; font-weight: bold; }
-
-.txt { font-size: 11px; line-height: 1.6; letter-spacing: 1.5px; text-align: justify; text-justify: inter-ideograph; }
-.txt.en { font-size: 10px; line-height: 1.4; letter-spacing: 1.5px; }
+.txtCopy.en { font-size: 13px; letter-spacing: 1.5px; }
+.txt { font-size: 12px; line-height: 1.6; letter-spacing: 1.5px; text-align: justify; text-justify: inter-ideograph; }
+.txt.en { font-size: 11px; line-height: 1.4; letter-spacing: 1.5px; }
 .txt.ko { line-height: 1.5; }
-
-.start .blcColumn3 { border-color: transparent; }
-
-#headName span, #headNameSub span { opacity: 0; }
-
+.start .column__child { border-color: transparent; }
 #txtCopy_01 span, #txtCopy_02 span, #txtCopy_01_02 span, #txtCopy_02_02 span, #txtCopy_03 span, #txtCopy_03_02 span { opacity: 0; font-weight: bold; }
-
 #message { margin-bottom: 30px; }
-#message .blcColumn3 { -webkit-transition: 0.3s linear; transition: 0.3s linear; }
-
+#message .column__child { -webkit-transition: 0.5s cubic-bezier(0.51, 0.09, 0.93, 0.29); transition: 0.5s cubic-bezier(0.51, 0.09, 0.93, 0.29); }
 #profile { opacity: 0; -webkit-transition: opacity 1.5s linear; transition: opacity 1.5s linear; }
-
-#about { margin-bottom: 40px; opacity: 0; -webkit-transition: opacity 1.5s 0.8s linear; transition: opacity 1.5s 0.8s linear; }
-
+#about { margin-bottom: 40px; opacity: 0; -webkit-transition: opacity 0.5s 0.8s cubic-bezier(0.51, 0.09, 0.93, 0.29); transition: opacity 0.5s 0.8s cubic-bezier(0.51, 0.09, 0.93, 0.29); }
+#works { opacity: 0; -webkit-transition: opacity 0.5s 0.8s cubic-bezier(0.51, 0.09, 0.93, 0.29); transition: opacity 0.5s 0.8s cubic-bezier(0.51, 0.09, 0.93, 0.29); }
+.works-item__hd { display: inline-block; margin: 0 0 7px; color: inherit; font-weight: bold; letter-spacing: 2px; border-bottom: 1px dotted #999; text-decoration: none; -webkit-transition: ease-out 0.2s color; transition: ease-out 0.2s color; }
+.works-item__hd:hover { color: #f00; }
+.works-item__txt { display: block; font-size: 12px; line-height: 1.6; letter-spacing: 1.5px; }
+.works-item + .works-item { margin-top: 15px; }
 #page_02 { width: 1080px; min-height: 650px; margin: 0 0 40px 3px; overflow: hidden; display: none; }
-
-#works { width: 2000px; overflow: hidden; }
-#works h3 { margin: 0 0 20px; font-family: 'Raleway'; font-size: 12px; letter-spacing: 1.5px; }
-#works dl { width: 140.28571px; float: left; padding: 0 15px 0 0; margin: 0 15px 0 0; box-sizing: border-box; font-size: 11px; line-height: 1.6; letter-spacing: 1.5px; }
-#works dl dt { height: 400px; margin: 0 0 5px 0; box-sizing: border-box; background: #fff; }
-#works dl dd { font-size: 11px; }
-#works dl:last-child { margin: 0; border: none; }
-#works a { color: #fff; -webkit-transition: ease-out 0.2s color; transition: ease-out 0.2s color; -webkit-transition-delay: 0s; transition-delay: 0s; }
-#works a:hover { color: #F00; text-shadow: 0 0 3px #f00; }
-
 /*-------------------------------------------------------------------------------------------------*
 FOOTER
 --------------------------------------------------------------------------------------------------*/
-#footer { width: 100%; padding: 8px 0 0; margin: 0 auto; bottom: 0px; left: 0px; position: absolute; z-index: 30; background: rgba(0, 0, 0, 0.5); box-sizing: border-box; }
+#footer { width: 100%; padding: 8px 0 0 239px; margin: 0 auto; bottom: 0px; left: 0px; position: absolute; z-index: 30; box-sizing: border-box; box-sizing: border-box; }
 .midNight #footer { background: #000; }
-#footer #footer-inner { width: 1080px; padding: 0 0 8px; position: relative; margin: 0 auto; }
-#footer #link { width: 1080px; padding: 0 0 0 0px; overflow: hidden; box-sizing: border-box; -webkit-transition: linear 1s opacity; transition: linear 1s opacity; -webkit-transition-delay: 0s; transition-delay: 0s; }
+#footer #footer-inner { width: 1080px; padding: 0 0 0; position: relative; margin: 0 auto; }
+#footer #link { width: 1080px; padding: 0 0 1.5% 3%; overflow: hidden; box-sizing: border-box; -webkit-transition: linear 1s opacity; transition: linear 1s opacity; -webkit-transition-delay: 0s; transition-delay: 0s; }
 #footer #link li { float: left; position: relative; padding: 0 20px 0 20px; }
-#footer #link li a { color: #fff; font-size: 93%; letter-spacing: 1.5px; -webkit-transition: ease-out 0.2s color; transition: ease-out 0.2s color; -webkit-transition-delay: 0s; transition-delay: 0s; text-decoration: none; }
+#footer #link li a { color: #fff; font-size: 93%; letter-spacing: 1.5px; -webkit-transition: ease-out 0.2s color; transition: ease-out 0.2s color; -webkit-transition-delay: 0s; transition-delay: 0s; text-decoration: none; line-height: 1; }
 #footer #link li a:hover { color: #F00; text-shadow: 0 0 3px #FF0000; }
 #footer #link li span { top: 0px; left: 0px; position: absolute; z-index: auto; font-size: 13px; }
-#footer #canvas-work { bottom: 12px; right: 40px; position: absolute; z-index: 10; }
+#footer #link li:first-child { padding-left: 18px; }
+#footer #canvas-work { bottom: 0px; right: 40px; position: absolute; z-index: 10; margin-bottom: 1.5%; }
 #footer #canvas-work p { letter-spacing: 3px; font-family: 'Raleway'; line-height: 1; font-size: 10px; font-weight: 700; color: #fff; }
 #footer #canvas-work span { font-size: 11px; }
 .fadeOut #footer #link { opacity: 0.3; }
-
 /*-------------------------------------------------------------------------------------------------*
 BACKGROUND
 --------------------------------------------------------------------------------------------------*/
-#background { width: 2000px; height: 1200px; overflow: visible; display: block; top: 0px; left: 0px; position: absolute; z-index: auto; overflow: hidden; }
-
+#canvas-iframe { display: block; width: 100%; height: 100%; left: 0px; position: absolute; top: 0px; overflow: hidden; }
+#background { width: 100%; height: 1200px; overflow: visible; display: block; max-width: 2000px; top: 0px; left: 0px; position: absolute; z-index: auto; overflow: hidden; }
 #mask { width: 100%; height: 100%; overflow: visible; display: block; top: 0px; left: 0px; position: absolute; z-index: 100; background: #000; }
-@-ms-keyframes $name { 0% { color: #fff; text-shadow: 0 0 10px #fff; }
+@-webkit-keyframes blackout { 0% { color: #fff; text-shadow: 0 0 10px #fff; }
   100% { color: #000; text-shadow: 0 0 0 #000; } }
-@-webkit-keyframes $name { 0% { color: #fff; text-shadow: 0 0 10px #fff; }
-  100% { color: #000; text-shadow: 0 0 0 #000; } }
-@keyframes $name { 0% { color: #fff; text-shadow: 0 0 10px #fff; }
+@keyframes blackout { 0% { color: #fff; text-shadow: 0 0 10px #fff; }
   100% { color: #000; text-shadow: 0 0 0 #000; } }
 /*-------------------------------------------------------------------------------------------------*
 SKIN
@@ -189,9 +147,5 @@ SKIN
 #midNight .fadeOut #header #mainNav { opacity: 0.05; }
 #midNight .fadeOut #contents { opacity: 0.05; }
 #midNight .fadeOut #footer #link { opacity: 0.05; }
-@-ms-keyframes $name { 0% { color: #f00; text-shadow: 0 0 10px #f00; }
-  100% { color: #000; text-shadow: 0 0 0 #000; } }
-@-webkit-keyframes $name { 0% { color: #f00; text-shadow: 0 0 10px #f00; }
-  100% { color: #000; text-shadow: 0 0 0 #000; } }
-@keyframes $name { 0% { color: #f00; text-shadow: 0 0 10px #f00; }
+@keyframes blackout { 0% { color: #f00; text-shadow: 0 0 10px #f00; }
   100% { color: #000; text-shadow: 0 0 0 #000; } }

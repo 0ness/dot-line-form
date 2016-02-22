@@ -27,10 +27,11 @@
 
 
 html	{ height:100%; -webkit-text-size-adjust: none;}
-body	{ height:100%; text-align:left; font-family:Helvetica,$fontGothic;
+body	{ height:100%; margin: 0; padding: 0; text-align:left; font-family:Helvetica,$fontGothic;
 	& > #wrapper { height:auto;}
 }
-#wrapper { min-width:1080px; height:100%; min-height:100%; overflow:hidden; margin:0 auto; position:relative; background: #0099cc; background: linear-gradient(190deg,  #0099cc 0%,#004888 67%,#00285c 100%); }
+#wrapper { /*min-width:1080px; */width: 100%; height:100%; min-height:100%; overflow:hidden; margin:0 auto; position:relative; }
+.container { /*margin:2%;*/ padding: 3.5% 3%; /*border: 1px solid #727272;*/ box-sizing: border-box;}
 
 @include iphone	{
 	#wrapper	{ height:1280px;}
@@ -72,19 +73,17 @@ p::selection,h1::selection,h2::selection,h3::selection,h4::selection,a::selectio
 /*-------------------------------------------------------------------------------------------------*
 HEADER
 --------------------------------------------------------------------------------------------------*/
-#header	{ width:$width; margin:0 auto; padding:40px 0 0; position:relative; z-index:10;}
-
-//タイトル
-#vi	{ margin:0 0 120px; font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; transition:linear 1s;
+#header	{ margin:0 auto 200px; padding:0 0 0; position:relative; z-index:10;}
+#vi	{ display: inline-block; font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; transition:linear 1s; opacity: 0;
 	.viLine	{ display:inline-block; vertical-align:middle; margin: -2px 4px 0 5px; font-family:Helvetica,Arial,sans-serif; font-size:13px; transition:linear 0.6s;
 		&:nth-child(2)	{ margin-left:4px;}
 	}
 	.viO	{ margin:0 2px 0 1px;}
-//	.lfn { opacity: 0;}
+	&.is-displayed { opacity: 1; transition:ease-in 1s 0.4s;}
 }		
 
 //メインナビ
-#mainNav	{ @include top-right(57,5,10); overflow:hidden; @include transition(linear,1s,opacity); display:none;
+#mainNav	{ @include top-right(0,0,10); overflow:hidden; @include transition(linear,1s,opacity); display:none;
 	li	{ float:left; padding:3px 16px 3px 3px;
 		span	{ display:inline-block; margin:0; font-size:8px; color:#ccc; display:none;}
 		a	{ display:block; padding:0 9px 2px; color:#000; font-size:10px; font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1px; @include transition; background:#d0d0d0; @include radius(2px); text-decoration:none;
@@ -95,13 +94,14 @@ HEADER
 				&:hover	{ @include box-shadow(none);}
 			}
 		}
+		&:last-child { padding-right: 0;}
 	}
 }
 
 //暗転時
 .fadeOut{
 	#vi{ 
-		.viLine{ @include animation(blackout 2.5s linear infinite alternate);}
+		.viLine{ animation:blackout 2.5s linear infinite alternate;}
 	}
 	#mainNav	{ opacity:0.3;}
 }
@@ -111,41 +111,53 @@ HEADER
 /*-------------------------------------------------------------------------------------------------*
 CONTENTS
 --------------------------------------------------------------------------------------------------*/
-#contents	{ width:$width; min-height:100%; overflow:hidden; position:relative; margin:0 auto; padding:  0 0 150px; z-index:10; transition:opacity 1.5s linear; 
-
-	//インナー
-	//#contents-inner	{ width:$width; @include top-left;}
+#contents	{ width:100%; min-height:100%; overflow:hidden; position:relative; margin:0 auto; padding:  0 0 100px; z-index:10; transition:opacity 1.5s linear; 
 	.fadeOut &		{ opacity:0.3;}
 }
 
+//セクション
+.section {padding: 0 0 0 239px; box-sizing: border-box;}
 
-//ブロック要素
-.blcColumnParent { width:1080px; margin:0 0 10px 3px; overflow:hidden;}
-.blcColumn3 { width: 340px; float: left; padding:0 30px 0 0; margin: 0 30px 0 0; border-right:1px solid #666; box-sizing: border-box;
-	&:last-child { padding-right:10px; margin-right:0; border: none;}
+//カラム
+.column { width:100%; @include clearfix; position: relative;
+	&__hd { margin:0 0 18px; font-family:'Raleway'; font-size:12px; letter-spacing:2px; line-height: 1;}
+	& + .column { margin-top: 50px;}
+}
+.column--2 {
+	.column__child { width: 50%; float: left; padding:0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
+		&:last-child { width: 48%; padding: 0; margin-right:0;}
+	}
+}
+.column--3 {
+	.column__child { width: 33%; float: left; padding:0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
+		&:last-child { width: 30%; padding: 0; margin-right:0;}
+	}	
 }
 
-//テキスト要素
-.head-01	{ margin:0 0 120px 0; font-size:fs(22); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:2px;
-	.sub	{ display:block; padding:0 0 4px 1px; font-size:13px; font-weight:700; letter-spacing:3px;}
+//テキスト
+.hd-name	{ margin:0 0 80px 239px; font-size:12px; font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:3px;
+	&__sub-blc 	{ /*float: left; */display: block; padding: 2px 10px 1px 0;}
+	&__sub 		{ display:block; padding:0 0 2px; /*font-size:11px;*/ font-weight:700; letter-spacing:3px;}
 }
-.head-min	{ margin:0 0 10px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}
-.txtCopy 	{ float:left; font-size:15px; line-height:1.5; letter-spacing:2px; font-weight:bold;}
-.txt		{ font-size:11px; line-height:1.6; letter-spacing:1.5px; @include text-justify;
-	&.en	{ font-size:10px; line-height:1.4; letter-spacing:1.5px;}
+#headName,
+#headNameSub,
+#headNameSub_02{
+	span {opacity: 0;}
+}
+.txtCopy 	{ float:left; font-size:15px; line-height:1.5; letter-spacing:2px; font-weight:bold;
+	&.en 	{ font-size: 13px; letter-spacing: 1.5px;}
+}
+.txt		{ font-size:12px; line-height:1.6; letter-spacing:1.5px; @include text-justify;
+	&.en	{ font-size:11px; line-height:1.4; letter-spacing:1.5px;}
 	&.ko	{ line-height:1.5;}
 }
 
 .start {
-	.blcColumn3 { border-color: transparent;}
+	.column__child { border-color: transparent;}
 }
 
 
 #page_01 	{}
-#headName,
-#headNameSub{
-	span {opacity: 0;}
-}
 #txtCopy_01,
 #txtCopy_02,
 #txtCopy_01_02,
@@ -156,27 +168,24 @@ CONTENTS
 }
 
 #message	{  margin-bottom:30px;
-	.blcColumn3 { transition: 0.3s linear;}
+	.column__child { transition: 0.5s cubic-bezier(.51, .09, .93, .29);}
 }
 #profile { opacity: 0; transition:opacity 1.5s linear;}
-#about	{ margin-bottom:40px; opacity: 0; transition:opacity 1.5s 0.8s linear;}
+#about	{ margin-bottom:40px; opacity: 0; transition:opacity 0.5s 0.8s cubic-bezier(.51, .09, .93, .29);}
+#works  { opacity: 0; transition:opacity 0.5s 0.8s cubic-bezier(.51, .09, .93, .29);}
+.works-list {}
+.works-item { 
+	&__hd  { display: inline-block; margin: 0 0 7px; color: inherit; font-weight: bold; letter-spacing: 2px; border-bottom: 1px dotted #999; text-decoration: none; transition:ease-out 0.2s color;
+		&:hover { color: #f00;}
+	}
+	&__txt { display: block; font-size:12px; line-height:1.6;letter-spacing:1.5px;}
+	& + .works-item { margin-top: 15px;}
+}
+
 
 
 //ページ2
-#page_02	{ width:$width; min-height:650px; margin:0 0 40px 3px; overflow:hidden; display:none;}
-
-//ワークス
-#works	{ width:2000px; overflow:hidden;
-	h3	{ margin:0 0 20px; font-family:'Raleway'; font-size:12px; letter-spacing:1.5px;}	
-	dl	{ width:$width / 7 - 14; float:left; padding: 0 15px 0 0; margin:0 15px 0 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
-		//dl	{ width:$width; padding:0 15px 0 0; margin:0 15px 20px 0; @include sizing; font-size:11px; line-height:1.6; letter-spacing:1.5px;
-		dt	{ height:400px; margin:0 0 5px 0; @include sizing; background:#fff;}
-		dd	{ font-size:11px;}
-	}
-	dl:last-child	{ margin:0; border:none;}
-	a	{ color:#fff; @include transition(ease-out,0.2s,color)}
-	a:hover	{ color:#F00; text-shadow:0 0 3px #f00;}
-}
+#page_02{ width:$width; min-height:650px; margin:0 0 40px 3px; overflow:hidden; display: none;}
 
 
 
@@ -184,7 +193,7 @@ CONTENTS
 /*-------------------------------------------------------------------------------------------------*
 FOOTER
 --------------------------------------------------------------------------------------------------*/
-#footer	{ width:100%; padding:8px 0 0; margin:0 auto; @include bottom-left(0,0,30); background:rgba(0,0,0,0.5); @include sizing; 
+#footer	{ width:100%; padding:8px 0 0 239px; margin:0 auto; @include bottom-left(0,0,30); @include sizing;  box-sizing: border-box;
 
 	//時間スタイル
 	.midNight &	{ background:#000;
@@ -192,19 +201,20 @@ FOOTER
 	}	
 	
 	//インナー
-	#footer-inner	{ width:$width; padding:0 0 8px; position:relative; margin:0 auto;}
+	#footer-inner	{ width:$width; padding:0 0 0; position:relative; margin:0 auto;}
 
 	//linkボタン
-	#link	{ width:$width; padding:0 0 0 0px; overflow:hidden; @include sizing;  @include transition(linear,1s,opacity);
+	#link	{ width:$width; padding:0 0 1.5% 3%; overflow:hidden; @include sizing;  @include transition(linear,1s,opacity);
 		li	{ float:left; position:relative; padding:0 20px 0 20px;
-			a	{ color:#fff; font-size:fs(12); letter-spacing:1.5px; @include transition(ease-out,0.2s,color); text-decoration:none;}
+			a	{ color:#fff; font-size:fs(12); letter-spacing:1.5px; @include transition(ease-out,0.2s,color); text-decoration:none; line-height: 1;}
 			a:hover	{ color:#F00; text-shadow:0 0 3px #FF0000;}
 			span { @include top-left; font-size:13px;}
+			&:first-child { padding-left: 18px;}
 		}
 	}
 	
 	//作品名
-	#canvas-work	{ @include bottom-right(12,40,10);
+	#canvas-work	{ @include bottom-right(0,40,10); margin-bottom: 1.5%;
 		p	{ letter-spacing:3px; font-family:'Raleway'; line-height:1; font-size:10px; font-weight:700; color:#fff;}
 		span	{ font-size:11px;}
 	}
@@ -222,11 +232,12 @@ FOOTER
 /*-------------------------------------------------------------------------------------------------*
 BACKGROUND
 --------------------------------------------------------------------------------------------------*/
-#background	{ @include wh(2000px,1200px); @include top-left; overflow:hidden;}
+#canvas-iframe {display: block;width: 100%;height: 100%;left: 0px;position: absolute;top: 0px; overflow: hidden;}
+#background	{ @include wh(100%,1200px); max-width: 2000px; @include top-left; overflow:hidden;}
 #mask		{ @include wh(100%,100%); @include top-left(0,0,100); background:#000;}
 
 
-@include keyframes(blackout){
+@keyframes blackout{
 	0% { color:#fff; text-shadow:0 0 10px #fff;}
 	100% { color:#000; text-shadow:0 0 0 #000;}
 }
@@ -256,7 +267,7 @@ SKIN
 		#footer	#link	{ opacity:0.05;}
 	}
 	
-	@include keyframes(blackout){
+	@keyframes blackout{
 		0% { color:#f00; text-shadow:0 0 10px #f00;}
 		100% { color:#000; text-shadow:0 0 0 #000;}
 	}
