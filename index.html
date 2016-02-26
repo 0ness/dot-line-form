@@ -47,9 +47,8 @@
 				<h2 class="hd-name"><span class="hd-name__sub-blc"><span class="hd-name__sub" id="headNameSub">Frontend</span><span class="hd-name__sub" id="headNameSub_02">Engineer</span></span><span id="headName">Hiroyuki Nakamura</span></h2>
 				
 				<!-- #page_01 -->
-				<section id="page_01" class="section">
+				<section id="page_01" class="section"> 
 					
-				
 					<!-- message -->
 					<div id="message" class="column column--2 start">
 						<p class="txtCopy column__child"><em><span id="txtCopy_01">人と繋がる為に、</span><br> <span id="txtCopy_01_02">僕はプログラムを描いています。</span></em></p>
@@ -59,7 +58,7 @@
 					
 					<!-- profile -->
 					<div id="profile" class="column column--2">
-						<h3 class="column__hd">Profile</h3>
+						<h3 class="column__hd" id="profile__hd">Profile</h3>
 						<p class="txt column__child">中村浩之、1983年3月5日の長野県松本市生まれ。<br> 2009年Web系専門学校卒業後、有限会社ワンダフルに入社。HTML / CSSコーディングからjavascriptの演出・Ajaxまでフロントエンド部分を担当。<br> 基本のコーディングからjsやCSS3を使った様々な演出を案件で経験、レスポンシブサイト開発をはじめとしたスマホ対応や、canvasを使用した表現を実装してきました。<br>コミュニケーションに必要な表現・UIとは何かをいつも考えています。色んな人達と繋がるキッカケとしてプログラムを描いています。</p>
 						<p class="txt column__child en">Born in Matsumoto, Nagano Prefecture on March 5, 1983.<br> After graduating a web based vocational school in 2009, I joined Wonderful ltd. Responsible for the front-end portion from the HTML / CSS coding to production · Ajax of javascript.<br>Experience a variety of production using js and CSS3 from the basics of coding in the projects, 2015 experienced a smartphone correspondence was started Responsive site development, implement the technology representation centered on the canvas.I always think of something to do with representation · UI necessary to communication. It draws the program as a chance to connect with many people.</p>
 					</div>
@@ -67,24 +66,46 @@
 					
 					<!-- about -->
 					<div id="about" class="column column--2">
-						<h3 class="column__hd">About this site</h3>
-						<p class="txt column__child">このサイトは僕が気になっている技術や表現を実験するためのポートフォリオサイトです。<br>実験的なスケッチを定期的に公開していまいります。</p>
-						<p class="txt column__child en">This site is a portfolio site for to experiment with technology and expressions I is in the mood. <br> experimental sketch we will have to publish regularly.</p>
+						<h3 class="column__hd" id="about__hd">About this site</h3>
+						<p class="txt column__child">このサイトは制作させて頂いた案件や、僕が気になっている技術や表現をアップしていくポートフォリオサイトです。スケッチや実験的な作品を定期的に公開していまいります。</p>
+						<p class="txt column__child en">This site projects and I am allowed to work, is a portfolio site that I go up the technology and expressions are in the mood. Sketches and experimental work we will have to publish regularly.</p>
 					</div>
 					<!-- /about -->
 					
-					<!-- works -->
-					<div id="works" class="column column--2">
-						<h3 class="column__hd">works</h3>
-						<ul class="works-list">
-							<li class="works-item"><a href="http://tmt.nao.ac.jp/" target="_balnk" class="works-item__hd">国立天文台TMT推進室</a><span class="works-item__txt">フロントエンドを担当しました。CMS実装前のテンプレートレイアウトやJSでの動的な表現を実装しております。</span></li>
-							<li class="works-item"><a href="http://www.nao.ac.jp/study/multiwave/" target="_balnk" class="works-item__hd">多波長で観る宇宙｜国立天文台(NAOJ)</a><span class="works-item__txt">コーディング全体を担当しました。リキッドなレイアウトの中で、見せたい情報を明確に表示する処理に気を使いました。あと単一ページでの実装になので、大きい画像などはバックエンド読み込みをしております。</span></li>
-							<li class="works-item"><a href="http://ounce.jp/" target="_balnk" class="works-item__hd">OUNCE | Taylormade Wedding Films</a><span class="works-item__txt">フロントエンドを担当しました。シンプルなレスポンシブ対応と、vimeoのAPIと連動したTOPページを実装致しました。</span></li>
-							<li class="works-item"><a href="http://mmat.jp/" target="_balnk" class="works-item__hd">目黒区美術館</a><span class="works-item__txt">フロントエンドを担当しました。バックエンド担当者と連携し静的ページのコーディング・テンプレート化作業を行いました。</span></li>
+					<!-- Sketch -->
+					<div id="sketch" class="column column--2">
+						<h3 class="column__hd" id="about__hd">Sketch</h3>
+						<ul class="sketch-list">
+							<li class="sketch-item"><a href="canvas/01.html" class="sketch-item__link"><span class="sketch-item__number">01</span>Drift-City</a><span class="sketch-item__txt">夜のドライブは大地の輪郭が無くなって、浮遊感があるのが好き。</span></li>
+							<li class="sketch-item"><a href="canvas/02.html" class="sketch-item__link"><span class="sketch-item__number">02</span>Encounter</a><span class="sketch-item__txt">入力と出力は一瞬で行われる。</span></li>
 						</ul>
 					</div>
-					<!-- /works --> 
-
+					<!-- /Sketch -->
+					
+					<!-- works -->
+					<div id="works" class="column column--2">
+						<h3 class="column__hd" id="works__hd">Works</h3>
+						<ul class="works-list">
+							<li class="works-item"><a href="http://tmt.nao.ac.jp/" target="_balnk" class="works-item__hd">国立天文台TMT推進室</a><span class="works-item__txt column column--2">
+								<p class="column__child">国立天文台TMT推進室の公式サイトのフロントエンドを担当しました。全体の静的なページからCMS用のレイアウト、JSでの動的な表現を実装しております。</p>
+								<p class="column__child en">I was in charge of the front-end of the official site of the National Astronomical Observatory of Japan TMT Promotion Office. Overall static pages from the layout for the CMS, implements a dynamic representation in JS.</p>
+								</span></li>
+							<li class="works-item"><a href="http://www.nao.ac.jp/study/multiwave/" target="_balnk" class="works-item__hd">多波長で観る宇宙｜国立天文台(NAOJ)</a><span class="works-item__txt column column--2">
+								<p class="column__child">宇宙を観測する為の波長にフォーカスした、国立天文台の特設サイトのフロントエンドを担当しました。リキッドなレイアウトの中で、見せたい情報を明確に表示する処理に気を使いました。あと単一ページでの実装になので、大きい画像などはバックグラウンド読み込みをしております。</p>
+								<p class="column__child en">Focused on the wavelength of the order to observe the universe, he was responsible for the front-end of the special site of the National Astronomical Observatory of Japan. Among the liquid layout, we used the attention to the process to clearly display the information you want to show. Since the implementation of after a single page, such as a large image, we have the background reading.</p>
+								</span></li>
+							<li class="works-item"><a href="http://ounce.jp/" target="_balnk" class="works-item__hd">OUNCE | Taylormade Wedding Films</a><span class="works-item__txt column column--2">
+								<p class="column__child">株式会社エトロフワークスが運営するウェディングフィルムサービス「ounce」サイトのフロントエンドを担当しました。シンプルなレスポンシブ対応と、vimeoのAPIと連動したTOPページを実装致しました。</p>
+								<p class="column__child en">Etorofu Works Co., Ltd. was responsible for the front-end of the wedding film service "ounce" site to operate. And simple responsive support, we implement the TOP page in conjunction with API of vimeo.</p>
+								</span></li>
+							<li class="works-item"><a href="http://mmat.jp/" target="_balnk" class="works-item__hd">目黒区美術館</a><span class="works-item__txt column column--2">
+								<p class="column__child">目黒区美術館の公式サイトのフロントエンドを担当しました。バックエンド担当者と連携し静的ページのコーディング・テンプレート化作業を行いました。</p>
+								<p class="column__child en">I was in charge of the front-end of the official site of the Meguro Museum of Art. In cooperation with the back-end the person in charge gave a coding template of work of the static page.</p>
+								</span></li>
+						</ul>
+					</div>
+					<!-- /works -->
+					
 				</section>
 				<!-- /#page_01 --> 
 				
@@ -114,7 +135,7 @@
 			
 			<!-- canvas-work -->
 			<div id="canvas-work">
-				<p><span>01</span>：Driven-City</p>
+				<p><span>01</span>：Drift-City</p>
 			</div>
 			<!-- s/canvas-work --> 
 			
@@ -122,7 +143,7 @@
 		<!-- /footer --> 
 		
 	</div>
-	<!-- /.container -->	
+	<!-- /.container -->
 	<div id="mask">&nbsp;</div>
 	<iframe id="canvas-iframe" src="canvas/01.html" scrolling="no" frameborder="0"></iframe>
 </div>

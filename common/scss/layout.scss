@@ -31,7 +31,7 @@ body	{ height:100%; margin: 0; padding: 0; text-align:left; font-family:Helvetic
 	& > #wrapper { height:auto;}
 }
 #wrapper { /*min-width:1080px; */width: 100%; height:100%; min-height:100%; overflow:hidden; margin:0 auto; position:relative; }
-.container { /*margin:2%;*/ padding: 3.5% 3%; /*border: 1px solid #727272;*/ box-sizing: border-box;}
+.container { /*margin:2%;*/ padding: 3.5% 2.5% 3.5% 3%; /*border: 1px solid #727272;*/ box-sizing: border-box;}
 
 @include iphone	{
 	#wrapper	{ height:1280px;}
@@ -73,8 +73,8 @@ p::selection,h1::selection,h2::selection,h3::selection,h4::selection,a::selectio
 /*-------------------------------------------------------------------------------------------------*
 HEADER
 --------------------------------------------------------------------------------------------------*/
-#header	{ margin:0 auto 200px; padding:0 0 0; position:relative; z-index:10;}
-#vi	{ display: inline-block; font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; transition:linear 1s; opacity: 0;
+#header	{ position:relative; z-index:10;}
+#vi	{ display: inline-block; @include top-left(3%,0,10,fixed); font-size:fs(30); font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:1.5px; transition:linear 1s; opacity: 0;
 	.viLine	{ display:inline-block; vertical-align:middle; margin: -2px 4px 0 5px; font-family:Helvetica,Arial,sans-serif; font-size:13px; transition:linear 0.6s;
 		&:nth-child(2)	{ margin-left:4px;}
 	}
@@ -111,31 +111,31 @@ HEADER
 /*-------------------------------------------------------------------------------------------------*
 CONTENTS
 --------------------------------------------------------------------------------------------------*/
-#contents	{ width:100%; min-height:100%; overflow:hidden; position:relative; margin:0 auto; padding:  0 0 100px; z-index:10; transition:opacity 1.5s linear; 
+#contents	{ width:100%; min-height:100%; overflow:hidden; position:relative; margin:0 auto; padding:220px 0 200px 230px; z-index:10; transition:opacity 1.5s linear; box-sizing: border-box;
 	.fadeOut &		{ opacity:0.3;}
 }
 
 //セクション
-.section {padding: 0 0 0 239px; box-sizing: border-box;}
+.section {padding: 0 0 0 0; box-sizing: border-box;}
 
 //カラム
 .column { width:100%; @include clearfix; position: relative;
 	&__hd { margin:0 0 18px; font-family:'Raleway'; font-size:12px; letter-spacing:2px; line-height: 1;}
-	& + .column { margin-top: 50px;}
+	& + .column { margin-top: 60px;}
 }
 .column--2 {
-	.column__child { width: 50%; float: left; padding:0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
+	& > .column__child { width: 50%; float: left; padding:0 1.5% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
 		&:last-child { width: 48%; padding: 0; margin-right:0;}
 	}
 }
 .column--3 {
-	.column__child { width: 33%; float: left; padding:0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
+	& > .column__child { width: 33%; float: left; padding:0 2% 0 0; margin: 0 2% 0 0; box-sizing: border-box;
 		&:last-child { width: 30%; padding: 0; margin-right:0;}
 	}	
 }
 
 //テキスト
-.hd-name	{ margin:0 0 80px 239px; font-size:12px; font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:3px;
+.hd-name	{ margin:0 0 80px 0; font-size:12px; font-family:'Raleway'; font-weight:700; line-height:1; letter-spacing:3px;
 	&__sub-blc 	{ /*float: left; */display: block; padding: 2px 10px 1px 0;}
 	&__sub 		{ display:block; padding:0 0 2px; /*font-size:11px;*/ font-weight:700; letter-spacing:3px;}
 }
@@ -145,7 +145,7 @@ CONTENTS
 	span {opacity: 0;}
 }
 .txtCopy 	{ float:left; font-size:15px; line-height:1.5; letter-spacing:2px; font-weight:bold;
-	&.en 	{ font-size: 13px; letter-spacing: 1.5px;}
+	&.en 	{ font-size: 14px; letter-spacing: 1.5px;}
 }
 .txt		{ font-size:12px; line-height:1.6; letter-spacing:1.5px; @include text-justify;
 	&.en	{ font-size:11px; line-height:1.4; letter-spacing:1.5px;}
@@ -170,22 +170,44 @@ CONTENTS
 #message	{  margin-bottom:30px;
 	.column__child { transition: 0.5s cubic-bezier(.51, .09, .93, .29);}
 }
-#profile { opacity: 0; transition:opacity 1.5s linear;}
-#about	{ margin-bottom:40px; opacity: 0; transition:opacity 0.5s 0.8s cubic-bezier(.51, .09, .93, .29);}
-#works  { opacity: 0; transition:opacity 0.5s 0.8s cubic-bezier(.51, .09, .93, .29);}
-.works-list {}
+#profile { opacity: 0; transition:opacity 0.5s ease-in;}
+#about	{ margin-bottom:40px; opacity: 0; transition:opacity 0.5s 0.5s cubic-bezier(.51, .09, .93, .29);}
+
+
+/*----------- sketch -----------*/
+#sketch  { opacity: 0; transition:opacity 0.5s 1s cubic-bezier(.51, .09, .93, .29);
+	.column__hd { padding-top: 60px; position: relative;
+		&:before { content: " "; @include wh(48%,1); @include top-left; border-top: 1px dotted #333;}
+		&:after { content: " "; @include wh(48%,1); @include top-right; border-top: 1px dotted #333;}
+	}
+	a { color: white;}
+}
+.sketch-item {  letter-spacing:3px; font-family:'Raleway'; line-height:1; font-weight:700; color:#fff;
+	&__txt 	{ display: inline-block; margin: 0 0 0 20px; letter-spacing:1.5px; font-weight: normal;}
+	&__number { display: inline-block;
+		&:after { content:"：";}
+	}
+	& + & { margin-top: 15px;}
+}
+
+
+/*----------- works -----------*/
+#works  { opacity: 0; transition:opacity 0.5s 1s cubic-bezier(.51, .09, .93, .29);
+	.column__hd { padding-top: 60px; position: relative;
+		&:before { content: " "; @include wh(48%,1); @include top-left; border-top: 1px dotted #333;}
+		&:after { content: " "; @include wh(48%,1); @include top-right; border-top: 1px dotted #333;}
+	}
+}
 .works-item { 
 	&__hd  { display: inline-block; margin: 0 0 7px; color: inherit; font-weight: bold; letter-spacing: 2px; border-bottom: 1px dotted #999; text-decoration: none; transition:ease-out 0.2s color;
 		&:hover { color: #f00;}
 	}
-	&__txt { display: block; font-size:12px; line-height:1.6;letter-spacing:1.5px;}
-	& + .works-item { margin-top: 15px;}
+	&__txt { display: block; font-size:12px; line-height:1.6; letter-spacing:1.5px; @include text-justify;
+		.en	{ font-size:11px; line-height:1.4; letter-spacing:1.5px;}
+	}
+	& + .works-item { margin-top: 20px;}
 }
 
-
-
-//ページ2
-#page_02{ width:$width; min-height:650px; margin:0 0 40px 3px; overflow:hidden; display: none;}
 
 
 
@@ -193,7 +215,7 @@ CONTENTS
 /*-------------------------------------------------------------------------------------------------*
 FOOTER
 --------------------------------------------------------------------------------------------------*/
-#footer	{ width:100%; padding:8px 0 0 239px; margin:0 auto; @include bottom-left(0,0,30); @include sizing;  box-sizing: border-box;
+#footer	{ width:100%; padding:8px 0 0 230px; margin:0 auto; @include bottom-left(0,0,30); @include sizing;  box-sizing: border-box;
 
 	//時間スタイル
 	.midNight &	{ background:#000;
@@ -232,8 +254,8 @@ FOOTER
 /*-------------------------------------------------------------------------------------------------*
 BACKGROUND
 --------------------------------------------------------------------------------------------------*/
-#canvas-iframe {display: block;width: 100%;height: 100%;left: 0px;position: absolute;top: 0px; overflow: hidden;}
-#background	{ @include wh(100%,1200px); max-width: 2000px; @include top-left; overflow:hidden;}
+#canvas-iframe {display: block;width: 100%;height: 100%; left: 0px; position: fixed; bottom: 0; overflow: hidden;}
+#background	{ @include wh(100%,auto); overflow:hidden;}
 #mask		{ @include wh(100%,100%); @include top-left(0,0,100); background:#000;}
 
 

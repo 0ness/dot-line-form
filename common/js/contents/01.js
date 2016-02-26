@@ -164,7 +164,7 @@
 	
 	//static property
 	DotMember.pi 		= 0.0174532925;//3.141592653589793 / 180
-	DotMember.endAndgle	= 3.141592653589793*2;
+	DotMember.endAndgle	= 3.1415926535*2;//3.141592653589793*2;
 	
 	//method
 	/**

@@ -1,31 +1,44 @@
-function LetterFader(_id,_duration,_delay,_ease){
+(function (window,document) {
+	"use strict";
 
-	this.id = document.getElementById(_id);
-	this.duration = _duration || this.duration;
-	this.delay = _delay || this.delay;
-	this.ease = _ease || this.ease;
 
-	this.init();
-	//this.callBack = function(){  };            
-	return false;
-};
-LetterFader.prototype = $.extend({
-	id:null,
-	$id:null,
-	$cls:null,
-	lettersCls:"efl",
-	$idAry:[],
-	beginProp:{"opacity":0},
-	endProp:{"opacity":1},
-	duration:800,
-	delay:30,
-	textLen:0,
-	ease:"linear",
-	animType:"",
-	flow:true,
-	timer:null,
+	var LetterFader = function(_param){
+		
+		/*property*/
+		this.id 		= document.getElementById(_param.id);
+		this.$id 		= $(this.id);
+		this.$cls 		= null;
 
-	init:function(){
+		this.$idAry 	= [];
+		
+		this.duration 	= _param.duration || this.duration;
+		this.delay		= _param.delay || this.delay;
+		this.ease 		= _param.ease || this.ease;
+
+		this.beginProp 	= {"opacity":0} || this.beginProp;
+		this.endProp	= {"opacity":1} || this.endProp;
+		this.textLen 	= 0;
+		this.animType 	= "";
+		this.flow 		= true;
+		this.timer 		= null;
+		
+		this.init();
+	},
+		Member = LetterFader.prototype;
+	
+	
+	
+	
+	/*static property
+	--------------------------------------------------------------------*/
+	Member.lettersCls 	= "efl";
+
+	
+	
+	
+	/*method
+	--------------------------------------------------------------------*/
+	Member.init = function(){
 
 		var that = this,
 			dom_id = that.id,
@@ -33,8 +46,6 @@ LetterFader.prototype = $.extend({
 			s_context = dom_id.textContent || dom_id.innerText,
 			ary_letter = [],
 			n_len = this.textLen = s_context.length;
-
-		this.$id = $(this.id);
 
 		//DOMのテキスト取得し、DOMを一旦空白にして、一文字ずつ、配列に格納
 		ary_letter = s_context.split("");
@@ -50,24 +61,22 @@ LetterFader.prototype = $.extend({
 			var lettersID;
 			for(var i = 0; i < n_len; i++){
 				lettersID = $(document.getElementById(s_id+"_"+i));
-//					lettersID.css(that.beginProp);
 				ary[i] = lettersID;
 			};
 			return ary;
 		})();
-		return false;	
-	},
+	};
 
-	reset:function(){
+	Member.reset = function(){
 		var $idAry = this.$idAry,
 			timer = this.timer,
 			n_arrText = this.textLen,
 			prop = (this.flow !== "out") ? this.beginProp : this.endProp;
 		if(timer)clearTimeout(timer);
 		for(var n = 0; n<n_arrText; n++) $idAry[n].finish().css(prop);
-	},
+	};
 
-	random:function(_flow){
+	Member.random = function(_flow){
 		var that = this,
 			$idAry = that.$idAry,
 			a_number = [],
@@ -95,10 +104,9 @@ LetterFader.prototype = $.extend({
 			that.timer = setTimeout(interval,n_dly);
 		};
 		interval();
-		return false;
-	},
+	};
 
-	foward:function(_flow){
+	Member.foward = function(_flow){
 		var that = this,
 			$idAry = that.$idAry,
 			s_ease = that.ease,
@@ -117,13 +125,11 @@ LetterFader.prototype = $.extend({
 			$obj.animate(prop,n_spd,s_ease);
 			n_count += 1;
 			that.timer = setTimeout(interval,n_dly);
-			return false;
 		};
 		interval();
-		return false;
-	},
+	};
 
-	back:function(_flow){
+	Member.back = function(_flow){
 		var that = this,
 			$idAry = that.$idAry,
 			s_ease = that.ease,
@@ -142,22 +148,19 @@ LetterFader.prototype = $.extend({
 			$obj.animate(prop,n_spd,s_ease);
 			n_count -= 1;
 			that.timer = setTimeout(interval,n_dly);
-			return false;
 		};
 		interval();
-		return false;
-	},
+	};
 
-	animation:function(_method){
+	Member.animation = function(_method){
 		var that = this;
 		var s_method = _method || that.animType;
 		if(s_method === "foward") that.foward(that.flow);
 		else if(s_method === "random") that.random(that.flow);
 		else if(s_method === "back") that.back(that.flow);
-		return false;
-	},
+	};
 
-	addRunBtn:function(_method,_flow){
+	Member.addRunBtn = function(_method,_flow){
 		var that = this,
 			dom_id = that.id,
 			sty_id = dom_id.style,
@@ -171,9 +174,9 @@ LetterFader.prototype = $.extend({
 		$(document.getElementById(s_id)).on("click",function(){
 			that.animation();
 		})
-		return false;
-	}
-});
-	
+	};
 
 	
+	window.LetterFader = LetterFader;
+}(window,document));
+
