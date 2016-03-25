@@ -36,7 +36,7 @@
 	Member.canvasFadeChange = function(_url){
 		var _$frame = this.$canvasFrame;
 		_$frame.fadeTo(600,0,"linear",function(){
-			_$frame.attr("src",_url).fadeTo(600,1,"linear");
+			_$frame.attr("src",_url).delay(500).fadeTo(600,1,"linear");
 		});
 	};
 	

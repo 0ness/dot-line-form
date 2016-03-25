@@ -38,7 +38,7 @@
 		this.dotSize =6;
 		//this.dotFieldSize = 1;
 		this.dotLineWidth = 4;
-		this.clearAlpha = 1;
+		this.clearAlpha = 0.5;
 		this.fillAlpha = 1;
 
 		var r = Math.floor(Math.random()*140);
@@ -73,20 +73,20 @@
 
 		//パラメータから算出した値
 		this.dotLength = 200;
-		this.dotDisLimit = 300;
+		this.dotDisLimit = 150;
 		this.dotSpd = 1.2;									
 		this.dotSize = 2.2;
 		this.dotLineWidth = 0.2;
-		this.fillAlpha = 0.5;
-		this.clearAlpha = 0.25;
+		this.fillAlpha 	= 1;
+		this.clearAlpha = 0.1;
 		this.flgFade = true;
 		this.flgAutoSpd = false;	
 		this.composition = "source-over";		
-		this.fillColor = "#999";			
-		this.fillHitColor = "rgba(255, 0, 0, 1)";
-		this.fillShadowColor = "rgba(0,0,0,0.5)";
-		this.strokeColor = "#aaa";		
-		this.bgColor = "#111";
+		this.fillColor = "#000";			
+		this.fillHitColor = "rgb(0, 255, 59)";
+		this.fillShadowColor = "rgba(0,0,0,1)";
+		this.strokeColor = "#00de33";
+		this.bgColor = "#000";
 	};
 
 	var dots = new Dots();
@@ -101,8 +101,9 @@
 		this.nY = 0;
 		this.nextObj = null;
 		this.flgHitted = false;
-		this.fillHitColor = "rgba("+ (Math.random()*255|0) +", 0, 0, 0.4)";
-		this.size = 15;
+//		this.fillHitColor = "rgba(0,"+ (Math.random()*255|0) +", 0, 1)";
+		this.fillHitColor = "rgb(0, 255, 59)";
+		this.size = 1;
 //		this.size = Math.random()*50 | 0;
 //		if(this.size < 1) this.size = 1;
 	}
@@ -270,10 +271,10 @@
 			_c.beginPath();
 			if(o.flgHitted === true) {
 				_c.fillStyle = o.fillHitColor;
-				_c.arc(x,y,o.size,0,n_Angle,false)
+//				_c.arc(x,y,o.size,0,n_Angle,false)
 			}else{
 				_c.fillStyle = dots.fillColor;
-				_c.arc(x,y,1,0,n_Angle,false);
+//				_c.arc(x,y,1,0,n_Angle,false);
 			}
 			_c.fill();
 
