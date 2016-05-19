@@ -230,8 +230,8 @@ FOOTER
 		li	{ float:left; position:relative; padding:0 20px 0 20px;
 			a	{ color:#fff; font-size:fs(12); letter-spacing:1.5px; @include transition(ease-out,0.2s,color); text-decoration:none; line-height: 1;}
 			a:hover	{ color:#F00; text-shadow:0 0 3px #FF0000;}
-			span { @include top-left; font-size:13px;}
-			&:first-child { padding-left: 18px;}
+			span { font-size:13px;}
+//			&:first-child { padding-left: 18px;}
 		}
 	}
 	

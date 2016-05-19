@@ -136,8 +136,7 @@ FOOTER
 #footer #link li { float: left; position: relative; padding: 0 20px 0 20px; }
 #footer #link li a { color: #fff; font-size: 93%; letter-spacing: 1.5px; -webkit-transition: ease-out 0.2s color; transition: ease-out 0.2s color; -webkit-transition-delay: 0s; transition-delay: 0s; text-decoration: none; line-height: 1; }
 #footer #link li a:hover { color: #F00; text-shadow: 0 0 3px #FF0000; }
-#footer #link li span { top: 0px; left: 0px; position: absolute; z-index: auto; font-size: 13px; }
-#footer #link li:first-child { padding-left: 18px; }
+#footer #link li span { font-size: 13px; }
 #footer #canvas-work { bottom: 0px; right: 40px; position: absolute; z-index: 10; margin-bottom: 1.5%; }
 #footer #canvas-work p { letter-spacing: 3px; font-family: 'Raleway'; line-height: 1; font-size: 10px; font-weight: 700; color: #fff; }
 #footer #canvas-work span { font-size: 11px; }
